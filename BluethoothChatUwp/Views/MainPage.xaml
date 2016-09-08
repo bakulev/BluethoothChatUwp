@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="BluethoothChatUwp.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BluethoothChatUwp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="using:BluethoothChatUwp.Views"
+    xmlns:viewModels="using:BluethoothChatUwp.ViewModels"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="btnSumm" Content="Summ" Command="{Binding SummCommand}" HorizontalAlignment="Left" Margin="247,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Value1, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="94,10,0,0" TextWrapping="Wrap" Text="{Binding Value2, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="178,10,0,0" TextWrapping="Wrap" Text="{Binding Result, Mode=OneWay}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="79,20,0,0" TextWrapping="Wrap" Text="+" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="163,20,0,0" TextWrapping="Wrap" Text="=" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>
