@@ -30,7 +30,7 @@ namespace BluethoothChatUwp.Core.ServiceLocator
         private void RegisterServices(ContainerBuilder builder)
         {
             RegisterSingleton<IMessageHub, MessageHub>(builder);
-            RegisterSingleton<IModel, Models.Model>(builder);
+            RegisterSingleton<IRfcommChatServer, Models.RfcommChatServer>(builder);
         }
 
         private static void RegisterViewModels(ContainerBuilder builder)

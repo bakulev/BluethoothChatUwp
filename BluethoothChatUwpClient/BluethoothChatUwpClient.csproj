@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{B59A071C-1AED-410F-A269-37534F05D439}</ProjectGuid>
+    <ProjectGuid>{87EF52DC-011D-476B-90B9-935C585BD4C4}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BluethoothChatUwp</RootNamespace>
@@ -98,8 +98,8 @@
     <Compile Include="Core\ServiceLocator\IServiceLocator.cs" />
     <Compile Include="Core\ServiceLocator\ServiceLocator.cs" />
     <Compile Include="Core\ViewModelLocator\ViewModelLocator.cs" />
-    <Compile Include="Models\IModel.cs" />
-    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\IRfcommChatClient.cs" />
+    <Compile Include="Models\RfcommChatClient.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
