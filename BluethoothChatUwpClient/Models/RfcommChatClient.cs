@@ -79,6 +79,7 @@ namespace BluethoothChatUwp.Models
                     }
                 }
                 //DeviceList.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                SelectDevice(0); //bakulev
             }
             else
             {
@@ -164,6 +165,20 @@ namespace BluethoothChatUwp.Models
             }
         }
 
+        static byte[] GetBytes(string str)
+        {
+            byte[] bytes = new byte[str.Length * sizeof(char)];
+            System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+            return bytes;
+        }
+
+        static string GetString(byte[] bytes)
+        {
+            char[] chars = new char[bytes.Length / sizeof(char)];
+            System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
+            return new string(chars);
+        }
+
         /// <summary>
         /// Takes the contents of the MessageTextBox and writes it to the outgoing chatWriter
         /// </summary>
@@ -173,8 +188,12 @@ namespace BluethoothChatUwp.Models
             {
                 if (strMessage.Length != 0 && chatWriter != null)
                 {
-                    chatWriter.WriteUInt32((uint)strMessage.Length);
-                    chatWriter.WriteString(strMessage);
+                    byte[] byteStr = GetBytes(strMessage);
+                    int strLen = byteStr.Length;
+                    // Write string lentgth first.
+                    chatWriter.WriteBytes(BitConverter.GetBytes(strLen));
+                    // Write base64 encoded string
+                    chatWriter.WriteBytes(byteStr);
 
                     //ConversationList.Items.Add("Sent: " + strMessage);
                     strMessage = "";
